@@ -59,7 +59,6 @@ All scripts are fully reproducible and documented.
 ## Authors
 
 - Eduardo da Silva – Federal University of Pernambuco (UFPE)  
-- Erlandson Ferreira Saraiva – Federal University of Mato Grosso do Sul (UFMS)  
 - Maísa Mendonça Silva – Federal University of Pernambuco (UFPE)
 
 ---
