@@ -47,5 +47,34 @@ All scripts are fully reproducible and documented.
 
 ---
 
-## Repository Structure
+## Key Contributions
+
+- Application of ZINB panel data models at the state level  
+- Joint analysis of climatic and structural determinants  
+- Identification of structural zeros associated with sanitation coverage  
+- Policy-relevant insights for dengue surveillance and prevention  
+
+---
+
+## Authors
+
+- Eduardo da Silva – Federal University of Pernambuco (UFPE)  
+- Erlandson Ferreira Saraiva – Federal University of Mato Grosso do Sul (UFMS)  
+- Maísa Mendonça Silva – Federal University of Pernambuco (UFPE)
+
+---
+
+## License and Availability
+
+The data and code are made available for academic and non-commercial use.  
+If you use this repository, please cite the corresponding article once published.
+
+---
+
+## Contact
+
+For questions or collaborations:
+
+eduardo.es@ufpe.br
+
 
