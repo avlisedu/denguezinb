@@ -1,4 +1,4 @@
-########## Nature Sustainability ########## 
+########## Science of The Total Environment ########## 
 ################################################################################
 # Title: Statistical modeling of Dengue cases in the state of Pernambuco, Brazil: 
 #         an approach using panel data and Zero-Inflated Negative Binomial Regression (ZINB)
@@ -10,18 +10,12 @@
 #              equidispersion testing (Cameron & Trivedi), and regional model 
 #              estimation.
 #
-# Authors: Eduardo Silva and Maisa Mendonça Silva 
+# Authors: Eduardo Silva and Maisa Mendonça Silva
 # Affiliation: Graduate Program in Production Engineering (PPGEP/UFPE)
 #              Research Group on Information and Decision Systems (GPSID)
-#
-# Date: 2025-08-12
-# Language: R (Version ≥ 4.2)
-# Required packages: See 'packages' section below
-#
 # Notes:
 # - All variables are standardized according to the dataset documentation.
 # - Results are reported in the Supplementary Materials of the manuscript
-#   submitted to Nature Sustainability.
 ################################################################################
 
 # Required Packages ----------------------------------------------------------------
@@ -66,6 +60,36 @@ vif_df <- data.frame(
   row.names = NULL
 )
 print(vif_df)
+vif_df$Variable <- factor(vif_df$Variable, levels = vif_df$Variable)
+ggplot(vif_df, aes(y = Variable)) +
+  geom_bar(
+    aes(x = 5),
+    stat = "identity",
+    fill = "#F1F3F5",
+    width = 0.6
+  ) +
+  geom_bar(
+    aes(x = VIF),
+    stat = "identity",
+    fill = "#3A86FF",
+    width = 0.6
+  ) +
+  geom_text(
+    aes(x = VIF + 0.15, label = VIF),
+    size = 4
+  ) +
+  geom_vline(xintercept = 5, linetype = "dashed", color = "gray40") +
+  scale_x_continuous(limits = c(0, 5)) +
+  labs(
+    x = "",
+    y = ""
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    panel.grid.major.y = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.grid.major.x = element_blank()
+  )
 
 # Variance Inflation Factor (VIF) analysis indicated no significant multicollinearity among the independent variables (all VIFs < 1.51), ensuring the stability and interpretability of the model coefficients.
 
@@ -127,12 +151,13 @@ plot(model_03_residuals)
 # AIC | BIC: 12288.2  12343.4
 
 # Random Effects – Only significant variables with structural change
-model_zinbase <- glmmTMB(Dengue ~ Max + Prec_lag1 + 
-                           (1 | Municipality/yyyymm),
-                         ziformula = ~ Water + Solid_Waste_per_1000 + Max + Prec_lag1,
+model_zinbase <- glmmTMB(dengue_cases ~ temp_max + temp_min + humidity + precipitation_lagOne + 
+                           (1 | municipality/yyyymm),
+                         ziformula = ~ waste_collection + sewage_coverage + water_coverage + 
+                           basic_sanitation_plan +  solid_waste_per_1000,
                          family = nbinom2,
-                         offset = log(Population),
-                         data = panel_data)
+                         offset = log(population),
+                         data = final_panel_data)
 summary(model_zinbase)
 confint(model_zinbase)
 # AIC | BIC: 12251.8  12319.3
@@ -163,11 +188,11 @@ for (reg in unique_regions) {
 # Not available
 
 # ============= Region 1 - Hinterland of Pernambuco
-model_zinbase1 <- glmmTMB(Dengue ~ Max + Prec_lag1 + 
-                            (1 | Municipality/yyyymm),
-                          ziformula = ~ Water + Solid_Waste_per_1000 + Max + Prec_lag1,
+model_zinbase1 <- glmmTMB(dengue_cases ~ temp_max + precipitation_lagOne + 
+                            (1 | municipality/yyyymm),
+                          ziformula = ~ water_coverage + solid_waste_per_1000 + temp_max + precipitation_lagOne,
                           family = nbinom2,
-                          offset = log(Population),
+                          offset = log(population),
                           data = panel_data_1)
 summary(model_zinbase1)
 confint(model_zinbase1)
@@ -176,11 +201,11 @@ model_zinbase <- simulateResiduals(fittedModel = model_zinbase)
 plot(model_zinbase)
 
 # ============= Region 2 - São Francisco Region of Pernambuco
-model_zinbase2 <- glmmTMB(Dengue ~ Max + Prec_lag1 + 
-                            (1 | Municipality/yyyymm),
-                          ziformula = ~ Water + Solid_Waste_per_1000 + Max + Prec_lag1,
+model_zinbase2 <- glmmTMB(dengue_cases ~ temp_max + precipitation_lagOne + 
+                            (1 | municipality/yyyymm),
+                          ziformula = ~ water_coverage + solid_waste_per_1000 + temp_max + precipitation_lagOne,
                           family = nbinom2,
-                          offset = log(Population),
+                          offset = log(population),
                           data = panel_data_2)
 summary(model_zinbase2)
 confint(model_zinbase2)
@@ -189,11 +214,11 @@ model_zinbase <- simulateResiduals(fittedModel = model_zinbase)
 plot(model_zinbase)
 
 # ============= Region 3 - Agreste of Pernambuco
-model_zinbase3 <- glmmTMB(Dengue ~ Max + Prec_lag1 + 
-                            (1 | Municipality/yyyymm),
-                          ziformula = ~ Water + Solid_Waste_per_1000 + Max + Prec_lag1,
+model_zinbase3 <- glmmTMB(dengue_cases ~ temp_max + precipitation_lagOne + 
+                            (1 | municipality/yyyymm),
+                          ziformula = ~ water_coverage + solid_waste_per_1000 + temp_max + precipitation_lagOne,
                           family = nbinom2,
-                          offset = log(Population),
+                          offset = log(population),
                           data = panel_data_3)
 summary(model_zinbase3)
 confint(model_zinbase3)
@@ -202,11 +227,11 @@ model_zinbase <- simulateResiduals(fittedModel = model_zinbase)
 plot(model_zinbase)
 
 # ============= Region 4 - Forest Zone of Pernambuco
-model_zinbase4 <- glmmTMB(Dengue ~ Max + Prec_lag1 + 
-                            (1 | Municipality/yyyymm),
-                          ziformula = ~ Water + Solid_Waste_per_1000 + Max + Prec_lag1,
+model_zinbase4 <- glmmTMB(dengue_cases ~ temp_max + precipitation_lagOne + 
+                            (1 | municipality/yyyymm),
+                          ziformula = ~ water_coverage + solid_waste_per_1000 + temp_max + precipitation_lagOne,
                           family = nbinom2,
-                          offset = log(Population),
+                          offset = log(population),
                           data = panel_data_4)
 summary(model_zinbase4)
 confint(model_zinbase4)
@@ -215,15 +240,13 @@ model_zinbase <- simulateResiduals(fittedModel = model_zinbase)
 plot(model_zinbase)
 
 # ============= Region 5 - Recife Metropolitan Area
-model_zinbase5 <- glmmTMB(Dengue ~ Max + Prec_lag1 + 
-                            (1 | Municipality/yyyymm),
-                          ziformula = ~ Water + Solid_Waste_per_1000 + Max + Prec_lag1,
+model_zinbase5 <- glmmTMB(dengue_cases ~ temp_max + precipitation_lagOne + 
+                            (1 | municipality/yyyymm),
+                          ziformula = ~ water_coverage + solid_waste_per_1000 + temp_max + precipitation_lagOne,
                           family = nbinom2,
-                          offset = log(Population),
+                          offset = log(population),
                           data = panel_data_5)
 summary(model_zinbase5)
 confint(model_zinbase5)
 model_zinbase <- simulateResiduals(fittedModel = model_zinbase)
 plot(model_zinbase)
-
-
