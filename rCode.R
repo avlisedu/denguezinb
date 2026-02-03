@@ -1,4 +1,4 @@
-########## Science of The Total Environment ########## 
+########## ACTA TROPICA ########## 
 ################################################################################
 # Title: Statistical modeling of Dengue cases in the state of Pernambuco, Brazil: 
 #         an approach using panel data and Zero-Inflated Negative Binomial Regression (ZINB)
