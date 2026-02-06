@@ -1,7 +1,6 @@
 ########## ACTA TROPICA ########## 
 ################################################################################
-# Title: Statistical modeling of Dengue cases in the state of Pernambuco, Brazil: 
-#         an approach using panel data and Zero-Inflated Negative Binomial Regression (ZINB)
+# Title: Understanding dengue incidence under excess zeros: evidence from a tropical region of the Global South
 # Description: This script performs data processing, exploratory analysis, and
 #              estimation of Zero-Inflated Negative Binomial (ZINB) models 
 #              with fixed and random effects to investigate the determinants 
