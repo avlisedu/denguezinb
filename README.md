@@ -1,9 +1,10 @@
-# Statistical Modeling of Dengue Cases in Pernambuco, Brazil
+# Understanding dengue incidence under excess zeros: evidence from a tropical region of the Global South
+
 
 This repository contains the data, code, and supplementary materials supporting the manuscript:
 
-**Statistical modeling of Dengue cases in the state of Pernambuco, Brazil:  
-a panel data approach using Zero-Inflated Negative Binomial regression**
+**Understanding dengue incidence under excess zeros: evidence from a tropical 
+region of the Global South**
 
 Submitted to: **Computers & Geosciences**
 
