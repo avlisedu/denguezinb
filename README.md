@@ -5,7 +5,7 @@ This repository contains the data, code, and supplementary materials supporting 
 **Statistical modeling of Dengue cases in the state of Pernambuco, Brazil:  
 a panel data approach using Zero-Inflated Negative Binomial regression**
 
-Submitted to: **ACTA TROPICA**
+Submitted to: **Computers & Geosciences**
 
 ---
 
