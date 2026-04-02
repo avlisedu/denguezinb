@@ -1,6 +1,6 @@
 ########## Computers & Geosciences ########## 
 ################################################################################
-# Title: Understanding dengue incidence under excess zeros: evidence from a tropical region of the Global South
+# Title: Modeling dengue incidence under excess zeros: evidence from a tropical region of the Global South
 # Description: This script performs data processing, exploratory analysis, and
 #              estimation of Zero-Inflated Negative Binomial (ZINB) models 
 #              with fixed and random effects to investigate the determinants 
