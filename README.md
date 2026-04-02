@@ -1,9 +1,9 @@
-# Understanding dengue incidence under excess zeros: evidence from a tropical region of the Global South
+# Modeling dengue incidence under excess zeros: evidence from a tropical region of the Global South
 
 
 This repository contains the data, code, and supplementary materials supporting the manuscript:
 
-**Understanding dengue incidence under excess zeros: evidence from a tropical 
+**Modeling dengue incidence under excess zeros: evidence from a tropical 
 region of the Global South**
 
 Submitted to: **Computers & Geosciences**
