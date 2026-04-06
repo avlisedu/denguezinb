@@ -1,4 +1,4 @@
-########## Computers & Geosciences ########## 
+########## International Journal of Biometeorology ########## 
 ################################################################################
 # Title: Modeling dengue incidence under excess zeros: evidence from a tropical region of the Global South
 # Description: This script performs data processing, exploratory analysis, and
