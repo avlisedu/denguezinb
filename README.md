@@ -3,10 +3,9 @@
 
 This repository contains the data, code, and supplementary materials supporting the manuscript:
 
-**Modeling dengue incidence under excess zeros: evidence from a tropical 
-region of the Global South**
+**Modeling dengue incidence under excess zeros: evidence from a tropical region of the Global South**
 
-Submitted to: **Computers & Geosciences**
+Submitted to: **International Journal of Biometeorology**
 
 ---
 
